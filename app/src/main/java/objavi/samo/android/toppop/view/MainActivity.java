@@ -1,6 +1,7 @@
-package objavi.samo.android.toppop;
+package objavi.samo.android.toppop.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,19 +13,21 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import objavi.samo.android.toppop.MainContract;
+import objavi.samo.android.toppop.R;
 import objavi.samo.android.toppop.adapter.SongAdapter;
+import objavi.samo.android.toppop.interactor.InteractorImpl;
 import objavi.samo.android.toppop.model.Feed;
+import objavi.samo.android.toppop.presenter.MainPresenterImpl;
 
-public class MainActivity extends AppCompatActivity implements MainContract.MainView {
+public class MainActivity extends AppCompatActivity implements MainContract.MainView, SongAdapter.OnItemClickListener{
     private static final String TAG = "MainActivity";
 
-    public static String SORTING_NORMAL = "normal";
-    public static String SORTING_ASCENDING = "ascending";
-    public static String SORTING_DESCENDING = "descending";
-
+    private static String SORTING_NORMAL = "normal";
+    private static String SORTING_ASCENDING = "ascending";
+    private static String SORTING_DESCENDING = "descending";
 
     private SwipeRefreshLayout mSwipeContainer;
-
     private RecyclerView mRecyclerView;
     private SongAdapter mAdapter;
 
@@ -51,16 +54,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
             }
         });
     }
-
-
     public void populateRecyclerView(ArrayList<Feed> tracks){
-        if (mAdapter != null){
-            // samo još ovo provjeriti kako točno
-            //mAdapter.clear();
-            //mAdapter.addAll(tracks);
-        }
-        mAdapter = new SongAdapter(mContext,tracks, null);
+        mAdapter = new SongAdapter(mContext,tracks);
         mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(MainActivity.this);
     }
 
     @Override
@@ -73,7 +70,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
             mAdapter.sortDescending();
         }
     }
-
 
     @Override
     public void onResponseFailure(Throwable throwable) {
@@ -105,5 +101,21 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
             mMainPresenter.onSortDescending(SORTING_DESCENDING);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(String trackName,
+                            String artistName,
+                            String albumName,
+                            int albumId,
+                            String albumCover) {
+
+        Intent intent = AlbumActivity.newIntent(mContext,
+                                                trackName,
+                                                artistName,
+                                                albumName,
+                                                albumId,
+                                                albumCover);
+        startActivity(intent);
     }
 }

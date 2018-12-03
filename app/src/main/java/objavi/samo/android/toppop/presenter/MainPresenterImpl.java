@@ -1,9 +1,10 @@
-package objavi.samo.android.toppop;
+package objavi.samo.android.toppop.presenter;
 
 import java.util.ArrayList;
 
+import objavi.samo.android.toppop.MainContract;
 import objavi.samo.android.toppop.model.Feed;
-import objavi.samo.android.toppop.model.children.Album;
+import objavi.samo.android.toppop.model.Album;
 
 public class MainPresenterImpl implements MainContract.MainPresenter,
                         MainContract.Interactor.OnFinishedListener {
@@ -46,12 +47,6 @@ public class MainPresenterImpl implements MainContract.MainPresenter,
     public void onFinished(ArrayList<Feed> feedArrayList) {
         mMainView.populateRecyclerView(feedArrayList);
         mMainView.onRefreshingEnded();
-
-    }
-
-    @Override
-    public void onFinished(Album album) {
-
     }
 
     @Override

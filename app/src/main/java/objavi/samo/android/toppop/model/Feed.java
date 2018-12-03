@@ -8,14 +8,26 @@ public class Feed {
     private String trackName;
     private String artistName;
     private int trackDuration;
+    private int albumId;
+    private String albumCover;
+    private String albumName;
 
-    public Feed(int trackRanking, String trackName, String artistName, int trackDuration) {
+    public Feed(int trackRanking,
+                String trackName,
+                String artistName,
+                int trackDuration,
+                int albumId,
+                String albumCover,
+                String albumName) {
+
         this.trackRanking = trackRanking;
         this.trackName = trackName;
         this.artistName = artistName;
         this.trackDuration = trackDuration;
+        this.albumId  = albumId;
+        this.albumCover = albumCover;
+        this.albumName = albumName;
     }
-
     public int getTrackRanking() {
         return trackRanking;
     }
@@ -46,6 +58,30 @@ public class Feed {
 
     public void setTrackDuration(int trackDuration) {
         this.trackDuration = trackDuration;
+    }
+
+    public int getAlbumId() {
+        return albumId;
+    }
+
+    public void setAlbumId(int albumId) {
+        this.albumId = albumId;
+    }
+
+    public String getAlbumCover() {
+        return albumCover;
+    }
+
+    public void setAlbumCover(String albumCover) {
+        this.albumCover = albumCover;
+    }
+
+    public String getAlbumName() {
+        return albumName;
+    }
+
+    public void setAlbumName(String albumName) {
+        this.albumName = albumName;
     }
 
     public static Comparator<Feed> COMPARE_BY_TRACK_DURATION_ASCENDING = new Comparator<Feed>() {

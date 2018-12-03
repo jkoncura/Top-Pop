@@ -2,9 +2,6 @@ package objavi.samo.android.toppop.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import objavi.samo.android.toppop.model.children.Album;
-import objavi.samo.android.toppop.model.children.Artist;
-
 public class Track {
 
     @SerializedName("title")
@@ -12,6 +9,9 @@ public class Track {
 
     @SerializedName("duration")
     private int trackDuration;
+
+    @SerializedName("position")
+    private int trackPosition;
 
     @SerializedName("artist")
     private Artist artist;
@@ -35,6 +35,14 @@ public class Track {
         this.trackDuration = trackDuration;
     }
 
+    public int getTrackPosition() {
+        return trackPosition;
+    }
+
+    public void setTrackPosition(int trackPosition) {
+        this.trackPosition = trackPosition;
+    }
+
     public Artist getArtist() {
         return artist;
     }
@@ -51,13 +59,4 @@ public class Track {
         this.album = album;
     }
 
-    @Override
-    public String toString() {
-        return "Track{" +
-                "trackTitle='" + trackTitle + '\'' +
-                ", trackDuration=" + trackDuration +
-                ", artist=" + artist +
-                ", album=" + album +
-                '}';
-    }
 }

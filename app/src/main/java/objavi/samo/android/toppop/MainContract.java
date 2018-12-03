@@ -3,13 +3,9 @@ package objavi.samo.android.toppop;
 import java.util.ArrayList;
 
 import objavi.samo.android.toppop.model.Feed;
-import objavi.samo.android.toppop.model.children.Album;
+import objavi.samo.android.toppop.model.Album;
 
 public interface MainContract {
-
-    /**
-     * Call when user interacts with the view and when the view is destroyed
-     */
 
     interface MainPresenter {
 
@@ -26,9 +22,7 @@ public interface MainContract {
 
     interface AlbumPresenter {
 
-        void requestDataFromServer();
-
-
+        void requestDataFromServer(int albumId);
     }
 
     interface MainView {
@@ -44,23 +38,24 @@ public interface MainContract {
 
     interface AlbumView {
 
-        void populateView();
+        void populateView(Album album);
 
-        void onResponseFailure();
+        void onResponseFailure(Throwable throwable);
     }
-    /**
-     * To fetch the data from web service
-     */
+
     interface Interactor {
 
         interface OnFinishedListener {
             void onFinished (ArrayList<Feed> feedArrayList);
-            void onFinished (Album album);
+            void onFailure(Throwable t);
+        }
+        interface OnCompletedListener {
+            void onCompleted (Album album);
             void onFailure(Throwable t);
         }
 
         void getFeedArrayList(OnFinishedListener onFinishedListener);
 
-        void getAlbumData(OnFinishedListener onFinishedListener);
+        void getAlbumData(int albumId, OnCompletedListener onCompleteListener);
     }
 }

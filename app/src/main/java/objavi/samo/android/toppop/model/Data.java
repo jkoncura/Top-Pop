@@ -17,10 +17,4 @@ public class Data {
         this.trackList = trackList;
     }
 
-    @Override
-    public String toString() {
-        return "Data{" +
-                "trackList=" + trackList +
-                '}';
-    }
 }
