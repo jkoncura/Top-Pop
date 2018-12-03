@@ -8,7 +8,7 @@ import retrofit2.http.Path;
 
 public interface DeezerApi {
 
-    @GET("/chart/0/tracks/") // to ide endpoint
+    @GET("/chart/0/tracks/")
     Call<Data> getTrackList();
 
     @GET("/album/{id}/")

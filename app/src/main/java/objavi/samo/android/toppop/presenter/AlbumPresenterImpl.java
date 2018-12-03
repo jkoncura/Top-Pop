@@ -23,7 +23,6 @@ public class AlbumPresenterImpl implements MainContract.AlbumPresenter,
         mInteractor.getAlbumData(albumId, this);
     }
 
-
     @Override
     public void onCompleted(Album album) {
         mAlbumView.populateView(album);
@@ -31,8 +30,7 @@ public class AlbumPresenterImpl implements MainContract.AlbumPresenter,
 
     @Override
     public void onFailure(Throwable t) {
-
-
+        mAlbumView.onResponseFailure(t);
     }
 }
 

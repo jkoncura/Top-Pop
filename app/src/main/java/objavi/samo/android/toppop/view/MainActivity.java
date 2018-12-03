@@ -54,10 +54,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
             }
         });
     }
-    public void populateRecyclerView(ArrayList<Feed> tracks){
-        mAdapter = new SongAdapter(mContext,tracks);
-        mRecyclerView.setAdapter(mAdapter);
-        mAdapter.setOnItemClickListener(MainActivity.this);
+
+
+    @Override
+    public void populateRecyclerView(ArrayList<Feed> feedArrayList) {
+            mAdapter = new SongAdapter(mContext,feedArrayList);
+            mRecyclerView.setAdapter(mAdapter);
+            mAdapter.setOnItemClickListener(MainActivity.this);
     }
 
     @Override

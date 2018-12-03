@@ -13,8 +13,5 @@ public class Data {
         return trackList;
     }
 
-    public void setTrackList(ArrayList<Track> trackList) {
-        this.trackList = trackList;
-    }
 
 }

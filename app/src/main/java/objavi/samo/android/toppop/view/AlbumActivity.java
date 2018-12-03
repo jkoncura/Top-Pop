@@ -42,14 +42,10 @@ public class AlbumActivity extends AppCompatActivity implements MainContract.Alb
 
     private MainContract.AlbumPresenter mPresenter;
 
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album);
-
-        System.out.println(TAG + " onCreate started");
 
         albumCover = findViewById(R.id.iv_cover_photo);
         trackName = findViewById(R.id.tv_track_name);

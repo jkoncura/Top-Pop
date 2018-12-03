@@ -67,14 +67,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="4dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="3dp"
-                android:text="Duration:"
+                android:text="Track duration:"
                 android:textColor="@color/blue_grey_500"
                 android:textStyle="bold" />
 
@@ -86,7 +86,6 @@
                 android:text="02:22"
                 android:textColor="@color/blue_grey_800"
                 android:textStyle="bold" />
-
 
         </LinearLayout>
 

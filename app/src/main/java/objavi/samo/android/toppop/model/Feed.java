@@ -32,56 +32,28 @@ public class Feed {
         return trackRanking;
     }
 
-    public void setTrackRanking(int trackRanking) {
-        this.trackRanking = trackRanking;
-    }
-
     public String getTrackName() {
         return trackName;
-    }
-
-    public void setTrackName(String trackName) {
-        this.trackName = trackName;
     }
 
     public String getArtistName() {
         return artistName;
     }
 
-    public void setArtistName(String artistName) {
-        this.artistName = artistName;
-    }
-
     public int getTrackDuration() {
         return trackDuration;
-    }
-
-    public void setTrackDuration(int trackDuration) {
-        this.trackDuration = trackDuration;
     }
 
     public int getAlbumId() {
         return albumId;
     }
 
-    public void setAlbumId(int albumId) {
-        this.albumId = albumId;
-    }
-
     public String getAlbumCover() {
         return albumCover;
     }
 
-    public void setAlbumCover(String albumCover) {
-        this.albumCover = albumCover;
-    }
-
     public String getAlbumName() {
         return albumName;
-    }
-
-    public void setAlbumName(String albumName) {
-        this.albumName = albumName;
     }
 
     public static Comparator<Feed> COMPARE_BY_TRACK_DURATION_ASCENDING = new Comparator<Feed>() {
